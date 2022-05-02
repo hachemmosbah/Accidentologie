@@ -1,0 +1,277 @@
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgba(191, 210, 211, 0.297);
+    
+}
+
+.title{
+    font-size: 2rem;
+    padding-top: 2vh;
+}
+
+.hero-head{
+    height: 5vh;
+}
+
+*{
+margin: 0;
+padding: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-end{
+    width: 30vw;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1vh;
+}
+
+.navbar-end a{
+    color: black;
+    text-decoration: none;
+
+}
+
+.navbar-end a:nth-child(1), .navbar-end a:nth-child(2), .navbar-end a:nth-child(3), #deconnexion60vh{
+    margin-top: 0.65vh;
+}
+
+.navbar-end1 a{
+    color: black;
+    text-decoration: none;
+}
+.navbar-end1{
+    width: 30vw;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1vh;
+}
+.navbar-end1 a:nth-child(1), .navbar-end1 a:nth-child(2), .navbar-end1 a:nth-child(3), .navbar-end1 a:nth-child(4), #deconnexion60vh{
+    margin-top: 0.65vh;
+}
+.navbar-end a:hover{
+    color: blue;
+}
+
+h1 {
+    color: rgba(49, 49, 187, 0.831);
+    margin-left: 10px;
+    text-align :center;
+    
+}
+.container .row .col-md-6  h4{
+    color: rgb(34, 103, 153);
+    margin-top: 0px;
+    font-size: 20px;
+    font-style: italic;
+    
+}
+.titre1 {
+    color: rgb(34, 103, 153);
+    margin-top: 0px;
+    font-size: 20px;
+    font-style: italic;
+    
+}
+h2{
+    color: rgb(120, 159, 156);
+    margin-top: 0px;
+    text-align :center;
+    font-size: 30px;
+    font-style: italic;
+    
+}
+
+.accident{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.60;
+    padding-top: 2vh;
+    
+    
+}
+
+.titre{
+    color: rgb(34, 103, 153);
+    margin-top: 0px;
+    font-size: 20px;
+    font-style: italic;
+}
+.pred{
+    margin-left: 40px;
+    text-align :center;
+    font-size: 20px;
+
+}
+.dashboard{
+    position: absolute;
+    right: 0;
+}
+.prediction{
+    position: absolute;
+    right: 0;
+}
+.index1{
+    position: absolute;
+    left: 0;
+}
+.index{
+    position: absolute;
+    left: 0;
+}
+.pred1{
+    
+    position: absolute;
+    right: 0;
+}
+.pred2{
+    position: absolute;
+    right: 0;
+}
+.pred3{
+    text-align: center;
+    font-size: 30px; 
+}
+.index2{
+    position: absolute;
+    left: 0;
+}
+.lightweight{
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    height: 35%;
+    opacity: 0.7;
+    
+}
+.hospitalization{
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    height: 35%;
+    opacity: 0.7;
+    
+}
+.result{
+    color :royalblue ;
+    text-align: center;
+    font-size: 30px;  
+}
+
+.box{
+    
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    padding-top: 2vh;
+
+}
+.is-offset-4{
+    text-align: center;
+    padding-top: 25vh;
+}
+.field{
+    height: 7vh;
+    width: 100%;
+}
+.field input{
+    height: 5vh;
+    width: 80%;
+    font-size: 1.4rem;
+    padding-left: 5px;
+}
+.is-fullwidth{
+    height: 5vh;
+    width: 80%;
+    margin-bottom: 1vh;
+    background-color: rgb(146, 226, 146);
+    border: none;
+    font-size: 1.2rem;
+}
+.is-fullwidth:hover{
+    background-color: rgb(36, 233, 36);
+}
+#checkbox{
+    
+    height: 4vh;
+    display: flex;
+    padding-left: 3vw;
+    
+}
+#checkbox input{
+    width: 3vw;
+    height: 2vh;
+}
+
+.zone2{
+    height: 60vh;
+    padding-right: 2vw;
+    
+}
+.zone2 img{
+    width: 40vw;
+    height: 50vh;
+    
+}
+.global{
+    display: flex;
+    padding-top: 3vh;
+}
+.zone1{
+    width: 60vw;
+    padding-left: 1vw;
+}
+.year input[type=text]{
+    font-size: 1.2rem;
+    height: 3vh;
+    width: 15vw;
+    border: 1px solid black;
+    margin-bottom: 2vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding-left: 7px;
+}
+.year input[type=submit]:hover{
+    background-color: rgb(36, 233, 36);
+}
+.gravity input, .gender input, .light input, .intersection input, .location input{
+    
+    margin-right: 1vw;
+    transform: scale(2);
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+.departement_div select{
+   font-size: 1.4rem;
+    height: 4vh;
+    width: 15vw;
+
+}
+.year input[type=submit]{
+    height: 5vh;
+    width: 40%;
+    margin-bottom: 1vh;
+    margin-top: 3vh;
+    margin-left: 8vw;
+    background-color: rgb(146, 226, 146);
+    border: none;
+    font-size: 1.2rem;
+    
+}
+.zone1 h4{
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 2vh;
+    text-decoration: underline;
+}
+.composent{
+    
+    height: 64vh;
+    overflow-y: auto;
+}

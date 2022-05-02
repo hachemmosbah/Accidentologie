@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css" />
+    
+    <title>prediction</title>
+</head>
+<body>
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+
+                <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div class="navbar-end1">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">
+                            Acceuil
+                        </a>
+                        <a href="{{ url_for('main.data') }}" class="navbar-item">
+                            Data
+                        </a>
+                        <a href="{{ url_for('main.pred') }}" class='navbar-item'>
+                            Prediction
+                        </a>
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item1" id="deconnexion">
+                            Déconnexion
+                        </a>
+                        <a class='navbar-item'>
+                            <span>&#128100</span> {{ name }}
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+<br/>
+<h4 class = "result">Résultat de la prédiction</h4><br />
+    <br />
+    {% if pred == 0 %}
+    <div class = "alert"> <!-- message -->
+        <div  class ="pred3">l'application ne prédit pas correctement veuillez ressayer s'il vous plait !</div>
+        <br />   
+    </div>
+    {% elif pred == 2 %}
+    <div class = "hospitalization"> <!-- picture -->
+        <div  class ="pred">l'accidenté est hospitalisé grave ou décédé</div>
+        <br />
+        <img  src="/static/images/hospitalisation.jpg" />
+        
+    </div>   
+    {% else %}
+    <div class = "lightweight"> <!-- picture -->
+        <div  class ="pred">l'accidenté est indemne ou hospitalisé léger</div>
+        <br />
+        <img  src="/static/images/leger.jpg"  />   
+    </div>
+        
+    {% endif %}
+
+</body>
+</html>

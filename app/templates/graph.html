@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css" />
+    
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+
+                <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div class="navbar-end1">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">
+                            Acceuil
+                        </a>
+                        <a href="{{ url_for('main.data') }}" class="navbar-item">
+                            Data
+                        </a>
+                        <a href="{{ url_for('main.pred') }}" class='navbar-item'>
+                            Prediction
+                        </a>
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item" id="deconnexion">
+                            Déconnexion
+                        </a>
+                        <a class='navbar-item'>
+                            <span>&#128100</span> {{ name }}
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+<br/><br/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+             <!-- condition for men -->
+            
+                {% if unhurt == 1 and men == 1 %}
+                <h4>USAGERS ACCIDENTÉES HOMMES EN FONCTION DE L'AGE</h4>
+                <div class="chart" id="bar">
+                   
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script> 
+                        var graphs = {{ plot1 | safe }};
+                        Plotly.plot('bar',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %} 
+                {% if  dead == 1 and men == 1 %}
+                <div class="chart" id="bar">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script> 
+                        var graphs = {{plot2 | safe}};
+                        Plotly.plot('bar',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %}
+                {% if  hospitalize == 1 and men == 1 %}
+                <div class="chart" id="bar">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script> 
+                        var graphs = {{plot3 | safe}} ;
+                        Plotly.plot('bar',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %}
+                {% if hurt_light == 1 and men == 1 %}
+                <div class="chart" id="bar">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script> 
+                        var graphs = {{plot4 | safe}};
+                        Plotly.plot('bar',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %}
+            
+        </div>
+        <br />
+        <div class="col-md-6">
+            
+            
+            
+                {% if unhurt == 1 and women == 1 %}
+                <h4>USAGERS ACCIDENTÉES FEMMES EN FONCTION DE L'AGE</h4>
+                <div class="chart" id="bar1">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script> 
+                        var graphs = {{plot5 | safe}};
+                        Plotly.plot('bar1',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %} 
+                {% if dead == 1 and women == 1 %}
+                <div class="chart" id="bar1">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script> 
+                        var graphs = {{plot6 | safe}};
+                        Plotly.plot('bar1',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %}
+                {% if hospitalize == 1 and women == 1 %}
+                <div class="chart" id="bar1">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                    <script> 
+                        var graphs = {{plot7 | safe}};
+                        Plotly.plot('bar1',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %}
+                {% if hurt_light == 1 and women == 1 %}
+                <div class="chart" id="bar1">
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>   
+                    <script> 
+                        var graphs = {{plot8 | safe}};
+                        Plotly.plot('bar1',graphs,{}); 
+                    </script> 
+                </div>
+                {% endif %}
+            
+        </div>
+        <br/>
+        <h4 class = "titre1">NOMBRE TOTAL D'USAGERS ACCIDENTEÉS PAR DEPARTEMENT SUR L'ANNÉE {{ year }}</h4>
+            <div class="chart1" id="bar3">
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                <script> 
+                    var graphs = {{plot9 | safe}};
+                    Plotly.plot('bar3',graphs,{}); 
+                </script> 
+            </div>
+            <br />
+            <h4 class = "titre1">LOCALISATION DES ACCIDENTS SUR L'ANNÉE {{ year }}</h4> 
+        <div class="chart1" id="bar4">
+            
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+                <script> 
+                    var graphs = {{plot10 | safe}};
+                    Plotly.plot('bar4',graphs,{}); 
+                </script> 
+        </div>
+    </div>
+</div>
+</body>
+</html>

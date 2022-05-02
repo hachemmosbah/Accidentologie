@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="static/style.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" /> -->
+  <title>DATA VISE</title>
+</head>
+<body>
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+
+                <div id="navbarMenuHeroA" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a href="{{ url_for('main.index') }}" class="navbar-item">
+                          Acceuil
+                        </a>
+                        <a href="{{ url_for('main.pred') }}" class='navbar-item'>
+                          Prediction
+                        </a>
+                        <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                          Déconnexion
+                        </a>
+                        <a class='navbar-item'>
+                          <span>&#128100</span> {{ name }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+  
+  <br/>
+  
+  <h2>Voici une analyse des accidents de la route </h2><br />
+  <section class="global">
+<article class="zone1">
+  <h4>Veuillez remplir le formulaire :</h4><br />
+    <div> <!-- tag year -->
+      <form class= "year" action ="{{ url_for('main.dashboard') }}"  method="post">
+        <label for="year" type = text>Choisir une Année :</label>
+        {{ form.crsf_token }} <!--  -->
+        {{ form.year }}
+        <ul>
+        {% for error in form.year.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+        </ul> 
+        <div>
+        <label for="age1" type = text>Choisir un âge :</label>
+        {{ form.age1 }}
+        <label for="age2" type = text>et </label> <!--  -->
+        {{ form.age2 }} 
+        </div> <br/>
+        <div class = gravity><!-- cheackbox gravity -->
+          Cochez une ou plusieurs cases pour la gravité de l'accident : <br/> 
+          <input type="checkbox" name="unhurt" value="1" id = 'unhurt' />Indemnes<label for = 'unhurt'></label><br/>
+          <input type="checkbox" name="dead" value="2" id = 'dead' />Tués<label for ='dead'></label><br/>
+          <input type="checkbox" name="hospitalize" value="3" id= 'hospitalize'  /> Blessés hospitalisés<label for = 'hospitalize'></label><br/>
+          <input type="checkbox" name="hurt_light" value="4" id = 'hurt_light' />Blessés légers<label for = 'hurt_light'></label><br/>
+        </div><br />
+        <div class = gender> <!-- cheackbox gender -->
+
+          Cochez une ou plusieurs cases pour le sexe de l'usager : <br/> 
+        
+          <input type="checkbox" name="men" value="1" id = 'men' />Hommes<label for = 'men'></label><br/>
+          <input type="checkbox" name="women" value="2" id = 'women' />Femmes<label for ='women'></label><br/>
+        </div><br />
+
+        <div class= 'departement_div' >
+          <label for="departement">Départements : </label> <!-- dropdown list departement-->
+          <select class="departement" name = departement id="departement">
+            <option disabled selected value>Département</option>
+            <!--<option>{{ list_nom_departement[] }}</option>-->
+            {% for y in list_code_departement %}
+              
+              <option value={{ y }}>{{ list_nom_departement[loop.index0] }}</option>
+              
+            {% endfor %}
+            </select>
+          </div>
+        <p> <input type="submit" value="Envoyer" /> </p> <!-- submit button -->
+      </form>
+    </div>
+    </article>
+    <article class="zone2">
+        <img  src="/static/images/suraccident.jpg" alt="accident" />
+    </article>
+</section>
+
+</body>
+</html>

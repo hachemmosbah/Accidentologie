@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css" />
+    
+    <title>prediction</title>
+</head>
+<body>
+  <div class="hero-head">
+    <nav class="navbar">
+        <div class="container">
+
+            <div id="navbarMenuHeroA" class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="{{ url_for('main.index') }}" class="navbar-item">
+                        Acceuil
+                    </a>
+                    <a href="{{ url_for('main.data') }}" class="navbar-item">
+                        Data
+                    </a>
+                    <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                        Déconnexion
+                    </a>
+                    <a class='navbar-item'>
+                      <span>&#128100</span> {{ name }}
+                  </a> 
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<br/>
+<h2>Voici une analyse predictif de la gravité des accidents de la route </h2><br />
+<section class=global>
+<article class="zone1">
+<h4>Veuillez remplir le formulaire :</h4><br />
+
+
+    <form class="year" action ="{{ url_for('main.result') }}"  method="post">
+      <div class="composent"> <!-- tag year -->
+      <label for="year1" type = text>Choisir une Année :</label>
+      
+      {{ form1.crsf_token }} 
+      {{ form1.year1 }}
+
+      <ul>
+      {% for error in form1.year1.errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+      </ul> 
+      <div>
+      <label for="age1" type = text>Choisir un âge :</label>
+      {{ form1.age1 }}
+      
+      </div> <br/>
+      <div class = gender> <!-- cheackbox gender -->
+
+        Cochez une case pour le sexe de l'usager : <br/> 
+      
+        <div><input type="radio" name="gender" value="1" id = 'men'  /><label for = 'gender'>Hommes</label></div>
+        <div><input type="radio" name="gender" value="2" id = 'women' /><label for ='gender'>Femmes</label></div>
+      </div><br />
+      <div class = location> 
+
+        Cochez une case pour la localisation de l'accident : <br/> 
+      
+        <div><input type="radio" name="location" value="1" id = 'hors aglomération'  />Hors aglomération</div>
+        <div><input type="radio" name="location" value="2" id = 'en aglomération' />En aglomération</div>
+      </div><br />
+      <div class = intersection> 
+
+        Cochez une case pour l'intersection : <br/> 
+      
+        <div><input type="radio" name="intersection" value="1" id = 'Hors intersection'  />Hors intersection</div>
+        <div><input type="radio" name="intersection" value="2" id = 'Intersection en X' />Intersection en X</div>
+        <div><input type="radio" name="intersection" value="3" id = 'Intersection en T' />Intersection en T</div>
+        <div><input type="radio" name="intersection" value="4" id = 'Intersection en Y' />Intersection en Y</div>
+        <div><input type="radio" name="intersection" value="5" id = 'Intersection à plus de 4 branches' />Intersection à plus de 4 branches</div>
+        <div><input type="radio" name="intersection" value="6" id = 'Giratoire' />Giratoire</div>
+        <div><input type="radio" name="intersection" value="7" id = 'Place' />Place</div>
+        <div><input type="radio" name="intersection" value="8" id = 'Passage à niveau' />Passage à niveau</div>
+        <div><input type="radio" name="intersection" value="9" id = 'Autre intersection' />Autre intersection</div>
+      </div><br />
+
+      <div class = light> 
+
+        Cochez une case pour la lumonisité de la route : <br/> 
+      
+        <div><input type="radio" name="light" value="1" id = 'Plein jour'  />Plein jour</div>
+        <div><input type="radio" name="light" value="2" id = 'Crépuscule ou aube' />Crépuscule ou aube</div>
+        <div><input type="radio" name="light" value="3" id = 'Nuit sans éclairage public' />Nuit sans éclairage public</div>
+        <div><input type="radio" name="light" value="4" id = 'Nuit avec éclairage public non allumé' />Nuit avec éclairage public non allumé</div>
+        <div><input type="radio" name="light" value="5" id = 'Nuit avec éclairage public allumé' />Nuit avec éclairage public allumé
+        </div>  
+        
+      </div><br />
+
+      <div class= 'departement_div' >
+        <label for="departement1">Départements : </label> <!-- dropdown list departement-->
+        <select class="departement" name = departement1 id="departement1">
+          <option value=10>{{ list_nom_departement[] }}</option>
+          {% for y in list_code_departement %}
+            
+            <option value={{ y }}>{{ list_nom_departement[loop.index0] }}</option>
+            
+          {% endfor %}
+          </select>
+        </div>
+      </div>
+      <p> <input type="submit" value="Envoyer" /> </p> <!-- submit button -->
+    </form>
+
+</article>
+<aritcle class="zone2">
+  <img  src="/static/images/ia.jpeg" alt="accident" />
+</aritcle>
+</section>
+</body>
+</html>
